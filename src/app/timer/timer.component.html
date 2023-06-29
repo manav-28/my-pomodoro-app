@@ -1,0 +1,40 @@
+<div class="container">
+  <br />
+  <h1 class="center">Pomodoro Clock</h1>
+  <br />
+  <div class="session-title">
+    <p class="font-size">Break Length</p>
+    <p class="font-size">Session Length</p>
+  </div>
+  <div class="session-title">
+    <div class="timer-control" id="break">
+      <button (click)="minusTime(breakString)">-</button>
+      <span class="time">{{ breakLength }}</span>
+      <button (click)="addTime(breakString)">+</button>
+    </div>
+
+    <div class="timer-control">
+      <button (click)="minusTime(sessionString)">-</button>
+      <span class="time">{{ sessionLength }}</span>
+      <button (click)="addTime(sessionString)">+</button>
+    </div>
+  </div>
+  <br />
+
+  <section (click)="timerStartStop()">
+    <div
+      class="timer"
+      [ngStyle]="{
+        border:
+          sessionType === 'Break!' ? '3px solid #E88B8B' : '3px solid #7de891'
+      }"
+    >
+      <p class="title">{{ sessionType }}</p>
+      <p>{{ timeLeft }}</p>
+      <span
+        [ngStyle]="{ height: fillHeight, background: fillColor }"
+        class="fill"
+      ></span>
+    </div>
+  </section>
+</div>
